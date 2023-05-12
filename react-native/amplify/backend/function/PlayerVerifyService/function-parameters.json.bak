@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "api": {
+      "u3infotech": [
+        "Query",
+        "Mutation"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

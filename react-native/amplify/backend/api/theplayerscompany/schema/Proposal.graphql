@@ -1,0 +1,27 @@
+type Proposal @model @searchable {
+    id: ID!,
+    sessionId: ID!,
+    proposalSession: ProposalSession @hasOne(fields: ["sessionId"])
+    email: String!,
+    track: ProposalTrackType!,
+    actionVerb: ProposalActionVerbType!,
+    statement: String!,
+    desiredGoal: String!,
+    votingCount: Int
+}
+
+enum ProposalTrackType {
+    COMMUNITY
+    LEARNING
+    PROFESSIONAL
+    FEATURES
+}
+
+enum ProposalActionVerbType {
+    CREATE
+    DEVELOP
+    IMPROVE
+    INCREASE
+    EXPAND
+    REMOVE
+}

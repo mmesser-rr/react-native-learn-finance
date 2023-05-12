@@ -1,0 +1,7 @@
+type EventStatus @model @searchable {
+  athleteId: ID!
+  athlete: Athlete @hasOne(fields: ["athleteId"])
+  eventItemId: ID!
+  event: Event @hasOne(fields: ["eventItemId"])
+  registered: Boolean! @default(value: "false")
+}

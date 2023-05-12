@@ -1,0 +1,6 @@
+type VotingSession @model @searchable {
+    id: ID!,
+    title: String,
+    startTime: AWSDateTime!,
+    endTime: AWSDateTime!
+}

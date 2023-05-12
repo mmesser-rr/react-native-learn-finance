@@ -1,0 +1,17 @@
+type LearnExercise @model @searchable {
+    bgImageUri: String!
+    title: String!
+    description: String
+    level: ExerciseLevel!
+    reward: Int!
+    sponsor: String!
+    problem: String!
+    createdAt: AWSDateTime!
+    updatedAt: AWSDateTime!
+}
+
+enum ExerciseLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}

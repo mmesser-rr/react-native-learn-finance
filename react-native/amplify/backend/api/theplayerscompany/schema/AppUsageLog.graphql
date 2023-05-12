@@ -1,0 +1,12 @@
+type AppUsageLog @model @searchable {
+  # yyyy-MM-dd
+  dateString: String! @primaryKey
+  athletesCount: Int @default(value: "0")
+  sessionsCount: Int @default(value: "0")
+  rsvpedEventsCount: Int @default(value: "0")
+  totalMinutesInApp: Float @default(value: "0")
+  completedModulesCount: Int @default(value: "0")
+  totalTrueChoiceCount: Int @default(value: "0")
+  totalFalseChoiceCount: Int @default(value: "0")
+  totalAskedQuestionsCount: Int @default(value: "0")
+}

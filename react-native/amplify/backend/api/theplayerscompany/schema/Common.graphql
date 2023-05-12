@@ -1,0 +1,16 @@
+type SocialHandles {
+  discord: String
+  instagram: String
+  telegram: String
+  tiktok: String
+  twitter: String
+  youtube: String
+}
+
+type Address {
+  streetAddress: String!
+  apt: String
+  city: String!
+  state: String!
+  zipCode: String!
+}

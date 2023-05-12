@@ -1,0 +1,6 @@
+type Resource @model @searchable {
+  title: String!
+  heroImageUri: String!
+  link: String!
+  learnItem: Learn @belongsTo
+}

@@ -1,0 +1,10 @@
+type ExerciseList @model {
+    id: ID!
+    exerciseId: ID!
+    exercise: LearnExercise @hasOne(fields: ["exerciseId"])
+    studentEmail: String
+    answer: String
+    approveDecline: Boolean
+    isChecked: Boolean @default(value: "false") 
+    isShowed: Boolean @default(value: "false")
+}

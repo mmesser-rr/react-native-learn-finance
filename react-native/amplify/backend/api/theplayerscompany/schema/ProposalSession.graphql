@@ -1,0 +1,6 @@
+type ProposalSession @model @searchable {
+    id: ID!,
+    title: String,
+    startTime: AWSDateTime!,
+    endTime: AWSDateTime!
+}

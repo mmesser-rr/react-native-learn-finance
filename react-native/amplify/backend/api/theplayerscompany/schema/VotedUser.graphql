@@ -1,0 +1,6 @@
+type VotedUser @model @searchable {
+    id: ID!,
+    sessionId: ID!,
+    votingSession: VotingSession @hasOne(fields: ["sessionId"]),
+    email: String!
+}

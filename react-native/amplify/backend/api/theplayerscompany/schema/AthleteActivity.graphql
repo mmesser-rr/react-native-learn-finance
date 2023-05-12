@@ -1,0 +1,6 @@
+type AthleteActivity @model @searchable {
+  wealthBalance: Int @default(value: "0")
+  allWagered: Int @default(value: "0")
+  loginCount: Int @default(value: "0")
+  activePeriodInMinutes: Int @default(value: "0")
+}

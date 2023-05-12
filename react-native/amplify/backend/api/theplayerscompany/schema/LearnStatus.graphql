@@ -1,0 +1,10 @@
+type LearnStatus @model @searchable {
+  athleteId: ID!
+  athlete: Athlete @hasOne(fields: ["athleteId"])
+  learnItemId: ID!
+  learn: Learn @hasOne(fields: ["learnItemId"])
+  passedDepositsCount: Int @default(value: "0")
+  wagered: Int @default(value: "0")
+  isWagered: Boolean @default(value: "false")
+  test: Int @default(value: "0")
+}

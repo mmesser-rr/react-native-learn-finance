@@ -1,0 +1,56 @@
+type Learn @model @searchable {
+  creatorId: ID!
+  creator: Athlete @hasOne(fields: ["creatorId"])
+  bgImageUri: String
+  sponsor: String!
+  title: String!
+  description: String
+  level: LearnLevel!
+  reward: Int!
+  deposits: [Deposit!]!
+  qaItems: [QAItem!]
+  socialHandles: SocialHandles
+  resources: [Resource] @hasMany
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type Deposit {
+  videoUri: String!
+  videoDuration: Int
+  title: String!
+  questions: [Quiz!]!
+}
+
+type Quiz {
+  questionText: String!
+  answers: [String!]!
+  correctAnswer: String!
+}
+
+type QAItem {
+  questionItem: QuestionItem!
+  answerItems: [AnswerItem!]!
+}
+
+type QuestionItem {
+  question: String!
+  authorId: ID!
+  authorName: String
+  createdAt: AWSDateTime
+}
+
+type AnswerItem {
+  answer: String!
+  authorEmail: String
+  authorName: String
+  authorTitle: String
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+enum LearnLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}

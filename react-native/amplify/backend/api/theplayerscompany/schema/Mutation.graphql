@@ -1,0 +1,37 @@
+type Mutation {
+  initiatePhoneChallenge(phoneNumber: String!): PhoneChallenge @function(name: "PlayerVerifyService-${env}")
+  returnUserChallenge(phoneNumber: String!): PhoneChallenge @function(name: "PlayerVerifyService-${env}")
+  validateReturnUser(phoneNumber: String!, code: String!): Boolean! @function(name: "PlayerVerifyService-${env}")
+  tryPhoneChallenge(phoneNumber: String!, code: String!): Boolean! @function(name: "PlayerVerifyService-${env}")
+  generateInvite: Invite @function(name: "InviteService-${env}")
+  initiateEmailChallenge(email: String!): EmailChallenge @function(name: "PlayerVerifyService-${env}")
+  tryEmailChallenge(email: String!, code: String!): Boolean! @function(name: "PlayerVerifyService-${env}")
+  openAppAndAccount(ssn: String!, athleteId: ID!): [AthleteAccount] @function(name: "UnitService-${env}")
+  openAccount(athleteId: ID!): AthleteAccount @function(name: "UnitService-${env}")
+  unitWebhookService(data: String): UnitAccount @function(name: "UnitService-${env}")
+
+  podSettings(athleteId: ID!, savings: Int!, investments: Int!, spending: Int!): AthleteAccount @function(name: "UnitService-${env}")
+  createPlaidLink(athleteId: ID!): PlaidToken @function(name: "PlaidService-${env}")
+  updatePlaidLink(athleteId: ID!, accessToken: String!): PlaidToken @function(name: "PlaidService-${env}")
+  createPlaidPayment(athleteId: ID!, plaidAccountId: String!, amount: Float!, description: String): UnitAccount @function(name: "UnitService-${env}")
+  bookPayment(athleteId: ID!, unitAccountId: String!, amount: Float!, description: String, receiverUnitAccountId: String!, receiverAccountType: String): UnitAccount @function(name: "UnitService-${env}")
+  debitAccount(athleteId: ID!, unitAccountId: String!, amount: Float!, description: String, receiverName: String!, receiverRoutingNumber: String!, receiverAccountNumber: String!, receiverAccountType: String, addenda: String): UnitAccount @function(name: "UnitService-${env}")
+  creditAccount(athleteId: ID!, unitAccountId: String!, amount: Float!, description: String, receiverName: String!, receiverRoutingNumber: String!, receiverAccountNumber: String!, receiverAccountType: String, addenda: String): UnitAccount @function(name: "UnitService-${env}")
+
+  # AppUsageLog mutations
+
+  ## Return registered number of athletes
+  increaseAthletesCount: Int
+  ## Return total count of log in
+  increaseSessionsCount: Int
+  ## Increase or decrease rsvpedEventsCount and return number of rsvped events
+  updateRSVPedEventsCount(increase: Boolean!): Int
+  ## Return totalMinutesInApp
+  increaseTotalMinutesInApp(byAmountInSeconds: Int!): Float
+  ## Return number of completed modules
+  increaseCompletedModulesCount: Int
+  ## Return number of correct/wrong answer selection
+  increaseTotalTrueOrFalseChoiceCount(increaseTrueChoice: Boolean!): Int
+  ## Return number of total asked questions
+  increaseTotalAskedQuestionsCount: Int
+}

@@ -1,0 +1,7 @@
+type RewardStatus @model @searchable {
+  athleteId: ID!
+  athlete: Athlete @hasOne(fields: ["athleteId"])
+  rewardItemId: ID!
+  reward: Reward @hasOne(fields: ["rewardItemId"])
+  redeemed: Boolean! @default(value: "false")
+}

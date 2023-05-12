@@ -1,0 +1,11 @@
+type QRCode @model @searchable {
+    learnId: ID!
+    learn: Learn @hasOne(fields: ["learnId"])
+    depositNum: Int!
+    wealthPointAmount: Int
+    rewardAmount: Int
+    itemName: String
+    eventName: String
+    limitCount: Int!
+    usedCount: Int
+}
